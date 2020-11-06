@@ -9,12 +9,12 @@ module.exports = function (homebridge) {
   UUIDGen = homebridge.hap.uuid;
   hap = homebridge.hap;
 
-  homebridge.registerPlatform("homebridge-foscamcamera", "FoscamCamera", FoscamPlatform, true);
+  homebridge.registerPlatform("homebridge-newfoscam", "NewFoscam", FoscamPlatform, true);
 }
 
 function FoscamPlatform(log, config, api) {
   this.log = log;
-  this.config = config || {"platform": "FoscamCamera"};
+  this.config = config || {"platform": "NewFoscam"};
   this.cameras = this.config.cameras || [];
 
   // HomeKit Current State: 0 (STAY_ARM), 1 (AWAY_ARM), 2 (NIGHT_ARM), 3 (DISARMED), 4 (ALARM_TRIGGERED)
@@ -170,7 +170,7 @@ FoscamPlatform.prototype.configureCamera = function (mac) {
   self.setService(newAccessory, mac);
 
   // Publish accessories to HomeKit
-  self.api.publishCameraAccessories("FoscamCamera", [newAccessory]);
+  self.api.publishCameraAccessories("NewFoscam", [newAccessory]);
 
   // Store accessory in cache
   self.accessories[mac] = newAccessory;
