@@ -1,4 +1,4 @@
-# homebridge-foscamcamera [![npm version](https://badge.fury.io/js/homebridge-foscamcamera.svg)](https://badge.fury.io/js/homebridge-foscamcamera)
+# homebridge-NewFoscam [![npm version](https://badge.fury.io/js/homebridge-NewFoscam.svg)](https://badge.fury.io/js/homebridge-NewFoscam)
 Foscam Plugin (Camera, Security System, Motion Sensor) for [HomeBridge](https://github.com/nfarina/homebridge) (API 2.1)
 
 Older verion using API 1.0: [homebridge-foscam](https://github.com/rooi/homebridge-foscam)<br>
@@ -15,14 +15,14 @@ Older verion using API 2.0: [homebridge-foscam2](https://github.com/luisiam/home
 
 # Installation
 1. Install homebridge using `npm install -g homebridge`.
-2. Install this plugin using `npm install -g homebridge-foscamcamera`.
+2. Install this plugin using `npm install -g homebridge-NewFoscam`.
 3. Update your configuration file. See configuration sample below.
 
 # Configuration
 Edit your `config.json` accordingly. Configuration sample:
 ```
 "platforms": [{
-    "platform": "FoscamCamera",
+    "platform": "NewFoscam",
     "name": "Foscam",
     "cameras": [{
         "username": "admin",
@@ -51,7 +51,7 @@ Edit your `config.json` accordingly. Configuration sample:
 
 | Fields               | Description                                                   | Default       | Required |
 |----------------------|---------------------------------------------------------------|---------------|----------|
-| platform             | Must always be `FoscamCamera`.                                |               | Yes      |
+| platform             | Must always be `NewFoscam`.                                |               | Yes      |
 | name                 | For logging purposes.                                         |               | No       |
 | cameras              | Array of camera config (multiple cameras supported).          |               | Yes      |
 | \|- username         | Your camera login username.                                   | admin         | No       |
