@@ -1,5 +1,5 @@
-// var StreamingDelegate = require("homebridge-camera-ffmpeg/dist/streamingDelegate");
-import StreamingDelegate from 'homebridge-camera-ffmpeg/dist/streamingDelegate'
+var StreamingDelegate = require("homebridge-camera-ffmpeg/dist/streamingDelegate");
+// import StreamingDelegate from 'homebridge-camera-ffmpeg/dist/streamingDelegate'
 var Foscam = require("foscam-client");
 var Accessory, Service, Characteristic, UUIDGen, hap;
 
