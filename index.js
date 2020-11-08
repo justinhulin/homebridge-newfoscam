@@ -149,7 +149,7 @@ FoscamPlatform.prototype.getInfo = function (cameraConfig, callback) {
 FoscamPlatform.prototype.configureCamera = function (mac) {
   var self = this;
   var thisCamera = this.cameraInfo[mac];
-  var name = "Foscam " + thisCamera.name;
+  var name = thisCamera.name;
   var uuid = UUIDGen.generate(mac);
 
   this.log("Initializing platform accessory '" + name + "'...");
