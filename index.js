@@ -1,5 +1,5 @@
 // var FFMPEG = require("homebridge-camera-ffmpeg/node_modules/ffmpeg-for-homebridge/ffmpeg");
-const StreamingDelegate = require("homebridge-camera-ffmpeg/dist/streamingDelegate");
+const StreamingDelegate = require("homebridge-camera-ffmpeg/dist/streamingDelegate").StreamingDelegate;
 var Foscam = require("foscam-client");
 var Accessory, Service, Characteristic, UUIDGen, hap;
 
@@ -151,6 +151,7 @@ FoscamPlatform.prototype.getInfo = function (cameraConfig, callback) {
 FoscamPlatform.prototype.configureCamera = function (mac) {
   var self = this;
   var thisCamera = this.cameraInfo[mac];
+  var thisFoscamAPI = this.foscamAPI
   var name = "Foscam " + thisCamera.name;
   var uuid = UUIDGen.generate(mac);
 
@@ -158,7 +159,7 @@ FoscamPlatform.prototype.configureCamera = function (mac) {
 
   // Setup for FoscamAccessory
   var videoProcessor = self.config.videoProcessor || 'ffmpeg';
-  let cameraSource = new StreamingDelegate(hap, thisCamera, self.log, videoProcessor);
+  let cameraSource = new StreamingDelegate(self.log, thisCamera, thisFoscamAPI, hap, videoProcessor);
   var newAccessory = new Accessory(name, uuid, hap.Accessory.Categories.CAMERA);
   newAccessory.configureCameraSource(cameraSource);
 
