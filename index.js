@@ -1,3 +1,4 @@
+"use strict";
 // var FFMPEG = require("homebridge-camera-ffmpeg/node_modules/ffmpeg-for-homebridge/ffmpeg");
 const StreamingDelegate = require("homebridge-camera-ffmpeg/dist/streamingDelegate").StreamingDelegate;
 var Foscam = require("foscam-client");
