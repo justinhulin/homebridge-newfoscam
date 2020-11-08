@@ -153,6 +153,7 @@ FoscamPlatform.prototype.configureCamera = function (mac) {
   var self = this;
   var thisCamera = this.cameraInfo[mac];
   // var thisFoscamAPI = this.foscamAPI
+  var thisapi = this.api
   var name = "Foscam " + thisCamera.name;
   var uuid = UUIDGen.generate(mac);
 
@@ -160,7 +161,7 @@ FoscamPlatform.prototype.configureCamera = function (mac) {
 
   // Setup for FoscamAccessory
   var thisvideoProcessor = self.config.videoProcessor || 'ffmpeg';
-  let cameraSource = new StreamingDelegate(self.log, thisCamera, hap, thisvideoProcessor);
+  let cameraSource = new StreamingDelegate(self.log, thisCamera, thisapi, hap, thisvideoProcessor);
   // let cameraSource = new StreamingDelegate(log: self.log, cameraConfig: thisCamera, api: thisFoscamAPI, hap: hap, videoProcessor: thisvideoProcessor);
   var newAccessory = new Accessory(name, uuid, hap.Accessory.Categories.CAMERA);
   newAccessory.configureCameraSource(cameraSource);
