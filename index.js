@@ -1,4 +1,4 @@
-var FFMPEG = require("homebridge-camera-ffmpeg/ffmpeg").FFMPEG;
+var FFMPEG = require("homebridge-camera-ffmpeg/node_modules/ffmpeg-for-homebridge/ffmpeg");
 var Foscam = require("foscam-client");
 var Accessory, Service, Characteristic, UUIDGen, hap;
 
