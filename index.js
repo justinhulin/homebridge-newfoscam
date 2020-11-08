@@ -1,4 +1,4 @@
-// var FFMPEG = require("homebridge-camera-ffmpeg/ffmpeg").FFMPEG;
+var FFMPEG = require("homebridge-camera-ffmpeg/ffmpeg").FFMPEG;
 var Foscam = require("foscam-client");
 var Accessory, Service, Characteristic, UUIDGen, hap;
 
@@ -155,8 +155,8 @@ FoscamPlatform.prototype.configureCamera = function (mac) {
   this.log("Initializing platform accessory '" + name + "'...");
 
   // Setup for FoscamAccessory
-  // var videoProcessor = self.config.videoProcessor || 'ffmpeg';
-  // var cameraSource = new FFMPEG(hap, thisCamera, self.log, videoProcessor);
+  var videoProcessor = self.config.videoProcessor || 'ffmpeg';
+  var cameraSource = new FFMPEG(hap, thisCamera, self.log, videoProcessor);
   var newAccessory = new Accessory(name, uuid, hap.Accessory.Categories.CAMERA);
   newAccessory.configureCameraSource(cameraSource);
 
