@@ -158,8 +158,9 @@ FoscamPlatform.prototype.configureCamera = function (mac) {
   this.log("Initializing platform accessory '" + name + "'...");
 
   // Setup for FoscamAccessory
-  var videoProcessor = self.config.videoProcessor || 'ffmpeg';
-  let cameraSource = new StreamingDelegate(self.log, thisCamera, thisFoscamAPI, hap, videoProcessor);
+  var thisvideoProcessor = self.config.videoProcessor || 'ffmpeg';
+  let cameraSource = new StreamingDelegate(self.log, thisCamera, thisFoscamAPI, hap, thisvideoProcessor);
+  // let cameraSource = new StreamingDelegate(log: self.log, cameraConfig: thisCamera, api: thisFoscamAPI, hap: hap, videoProcessor: thisvideoProcessor);
   var newAccessory = new Accessory(name, uuid, hap.Accessory.Categories.CAMERA);
   newAccessory.configureCameraSource(cameraSource);
 
