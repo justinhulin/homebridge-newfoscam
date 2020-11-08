@@ -157,8 +157,8 @@ FoscamPlatform.prototype.configureCamera = function (mac) {
   // Setup for FoscamAccessory
   // var videoProcessor = self.config.videoProcessor || 'ffmpeg';
   // var cameraSource = new FFMPEG(hap, thisCamera, self.log, videoProcessor);
-  // var newAccessory = new Accessory(name, uuid, hap.Accessory.Categories.CAMERA);
-  // newAccessory.configureCameraSource(cameraSource);
+  var newAccessory = new Accessory(name, uuid, hap.Accessory.Categories.CAMERA);
+  newAccessory.configureCameraSource(cameraSource);
 
   // Add HomeKit Security System Service
   newAccessory.addService(Service.SecuritySystem, name + " Motion Detection");
